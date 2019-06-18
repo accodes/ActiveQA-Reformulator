@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:/Users/aanamika/Documents/QuestionGeneration/active-qa-master/tmp/active-qa/temp/translate.ckpt-1460356.ckpt"
+all_model_checkpoint_paths: "C:/Users/aanamika/Documents/QuestionGeneration/active-qa-master/tmp/active-qa/temp/translate.ckpt-1460356.ckpt"

@@ -1,0 +1,21 @@
+
+SET OUT_DIR=tmp/active-qa
+SET REFORMULATOR_DIR=%OUT_DIR%/reformulator/
+
+{{{{ The checkpoint file created have following lines:
+
+model_checkpoint_path: "C:/Users/aanamika/Documents/QuestionGeneration/active-qa-master/tmp/active-qa/temp/translate.ckpt-1460356.ckpt"
+all_model_checkpoint_paths: "C:/Users/aanamika/Documents/QuestionGeneration/active-qa-master/tmp/active-qa/temp/translate.ckpt-1460356.ckpt" }}}}
+
+echo "model_checkpoint_path:/"C:/Users/aanamika/Documents/QuestionGeneration/active-qa-master/tmp/active-qa/translate.ckpt-1460356"" > checkpoint   (OR)    translate.ckpt-6156696"" > checkpoint
+
+
+echo model_checkpoint_path:/"C://Users//aanamika//Documents//QuestionGeneration//active-qa-master//translate.ckpt-6156696//"" > checkpoint  
+
+
+cp -f checkpoint %REFORMULATOR_DIR%
+cp -f checkpoint %REFORMULATOR_DIR%/initial_checkpoint.txt
+
+
+python -m px.nmt.reformulator_and_selector_training_edited --environment_server_address=localhost:10000 --hparams_path=px/nmt/example_configs/reformulator.json --enable_reformulator_training=false --enable_selector_training=false --train_questions=data/squad/train-questions.txt --train_annotations=data/squad/train-annotation.txt --train_data=data/squad/data_train.json --dev_questions=data/squad/dev-questions.txt --dev_annotations=data/squad/dev-annotation.txt --dev_data=data/squad/data_dev.json --glove_path=/data/glove/glove.6B.100d.txt --out_dir=REFORMULATOR_DIR/reformulator --tensorboard_dir=OUT_DIR/tensorboard
+
